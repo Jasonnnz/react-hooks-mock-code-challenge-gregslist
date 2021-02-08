@@ -1,7 +1,7 @@
 import React from "react";
 import Search from "./Search";
 
-function Header() {
+function Header({onSubmit, checked, setChecked}) {
   return (
     <header>
       <h1>
@@ -9,8 +9,10 @@ function Header() {
           ☮
         </span>
         gregslist
-      </h1>
-      <Search />
+      </h1><br></br>
+      <label htmlFor="alphabetical">Sort by Location</label>
+      <input value={checked} onChange={(e) => setChecked(e.target.checked)} type="checkbox" name="alphabetical"/>
+      <Search onSubmit={onSubmit} />
     </header>
   );
 }
